@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { CourseService } from './courses.service';
-import { Course } from './course.entity';
+import { Course } from './entities/course.entity';
 
 @Controller('courses') // <-- this registers the /courses route
 export class CoursesController {
