@@ -1,12 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column,ManyToOne } from 'typeorm';
+import { Category } from 'src/categories/entities/category.entity';
 @Entity('courses')
 export class Course {
   @PrimaryGeneratedColumn()
   course_id: number;
 
-  @Column()
-  category_id: number;
+  @ManyToOne(() => Category, (category) => category.courses)
+  category: Category;
 
   @Column()
   image_id: number;

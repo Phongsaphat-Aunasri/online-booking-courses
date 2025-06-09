@@ -6,6 +6,8 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/entities/role.entity';
+import { CategoriesModule } from './categories/category.module';
+import { Category } from './categories/entities/category.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,12 +17,13 @@ import { Role } from './roles/entities/role.entity';
       username: 'postgres',
       password: '1234',
       database: 'online_courses',
-      entities: [Course,User,Role],
+      entities: [Course,User,Role,Category],
       synchronize: true, // Set to false in production
     }),
     CoursesModule,
     UsersModule,
     RolesModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}
