@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CoursesModule } from './courses/courses.module';
 import { Course } from './courses/entities/course.entity';
-
+import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -12,10 +13,11 @@ import { Course } from './courses/entities/course.entity';
       username: 'postgres',
       password: '1234',
       database: 'online_courses',
-      entities: [Course],
+      entities: [Course,User],
       synchronize: true, // Set to false in production
     }),
     CoursesModule,
+    UsersModule,
   ],
 })
 export class AppModule {}
